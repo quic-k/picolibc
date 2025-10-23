@@ -1,12 +1,13 @@
 [binaries]
 c = ['clang', '-m32', '-target', 'riscv32-unknown-elf', '-march=rv32imafdc', '-mabi=ilp32d', '-nostdlib']
 cpp = ['clang', '-m32', '-target', 'riscv32-unknown-elf', '-march=rv32imafdc', '-mabi=ilp32d', '-nostdlib', '-stdlib=libstdc++']
-c_ld = '/usr/bin/riscv64-unknown-elf-ld'
-cpp_ld = '/usr/bin/riscv64-unknown-elf-ld'
-ar = 'riscv64-unknown-elf-ar'
-as = 'riscv64-unknown-elf-as'
-nm = 'riscv64-unknown-elf-nm'
-strip = 'riscv64-unknown-elf-strip'
+c_ld = 'eld'
+cpp_ld = 'eld'
+ar = 'llvm-ar'
+as = 'clang'
+nm = 'llvm-nm'
+strip = 'llvm-strip'
+readelf = 'llvm-readelf'
 # only needed to run tests
 exe_wrapper = ['env', 'run-riscv']
 
@@ -17,6 +18,7 @@ cpu = 'riscv'
 endian = 'little'
 
 [properties]
+libgcc = '-lclang_rt.builtins'
 c_args = ['-Werror=double-promotion']
 c_link_args = ['-Wl,-melf32lriscv', '-L/usr/lib/gcc/riscv64-unknown-elf/15/rv32imafdc/ilp32d', '-L/usr/lib/gcc/riscv64-unknown-elf/15.2.0/rv32imafdc/ilp32d']
 cpp_link_args = ['-Wl,-melf32lriscv', '-L/usr/lib/gcc/riscv64-unknown-elf/15/rv32imafdc/ilp32d', '-L/usr/lib/gcc/riscv64-unknown-elf/15.2.0/rv32imafdc/ilp32d']
