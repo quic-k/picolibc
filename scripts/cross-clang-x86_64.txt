@@ -5,8 +5,8 @@
 # requires at least version 0.54.2 of meson.
 c = ['clang', '-target', 'x86_64-none-elf', '-march=core2', '-mfpmath=sse', '-msse2', '-fno-pic', '-fno-PIE', '-static', '-nostdlib']
 cpp = ['clang', '-target', 'x86_64-none-elf', '-march=core2', '-mfpmath=sse', '-msse2', '-fno-pic', '-fno-PIE', '-static', '-nostdlib']
-c_ld = 'lld'
-cpp_ld = 'lld'
+c_ld = 'eld'
+cpp_ld = 'eld'
 ar = 'ar'
 as = 'as'
 nm = 'nm'
@@ -23,6 +23,7 @@ endian='little'
 
 [properties]
 skip_sanity_check = true
+libgcc='-lclang_rt.builtins'
 needs_exe_wrapper = true
 link_spec = '--build-id=none'
 default_flash_addr = '0x00100000'
