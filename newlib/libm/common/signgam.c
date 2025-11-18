@@ -36,7 +36,7 @@
 #include <math.h>
 
 #ifdef __weak_reference
-int __signgam;
+int __signgam = 0;
 __weak_reference(__signgam, signgam);
 #else
 int signgam;

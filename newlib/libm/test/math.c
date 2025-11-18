@@ -273,7 +273,7 @@ fffcheck (float is,
   return fffcheck_id(is, p, name, serrno, merror, 0);
 }
 
-static
+static void
 volatile_memcpy(volatile void *dest, void *src, size_t len)
 {
     volatile uint8_t *d = dest;
